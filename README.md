@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @dalio8
 - 👀 I’m interested in ... Technologies
-- 🌱 I’m currently learning ... Cloud Computing - AWS
+- 🌱 I’m currently learning ... Cloud Computing - AWS EC2
 - 💞️ I’m looking to collaborate on ... Provisioning Infrastructure
 - 📫 How to reach me ... dalio8@hotmail.com
 
