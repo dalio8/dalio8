@@ -1,0 +1,44 @@
+.todo-item {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.todo-item h3 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.todo-item p {
+  color: var(--text-color);
+  font-size: 0.9em;
+}
+
+.todo-item p:last-of-type { /* Due Date paragraph */
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+
+.todo-item div { /* Checkbox container */
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.todo-item label {
+  color: var(--text-color);
+  margin-left: 5px;
+}
+
+.todo-item button {
+  /* General button styles are in index.css */
+  margin-right: 8px;
+  padding: 8px 12px; /* Slightly smaller buttons for items */
+}
+
+.todo-item button:last-of-type {
+  margin-right: 0;
+}
