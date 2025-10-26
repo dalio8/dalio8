@@ -1,3 +1,8 @@
+/**
+ * @fileoverview A component to display a question card with options to answer and feedback.
+ * @fileoverview Um componente para exibir um card de questão com opções de resposta e feedback.
+ */
+
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -6,13 +11,48 @@ import Card from './Card'
 import Button from './Button'
 import Badge from './Badge'
 
+/**
+ * @interface QuestaoCardProps
+ * @description The props for the QuestaoCard component.
+ * @description As props para o componente QuestaoCard.
+ */
 interface QuestaoCardProps {
+  /**
+   * @property {Questao} questao - The question object to display.
+   * @property {Questao} questao - O objeto da questão a ser exibido.
+   */
   questao: Questao
+  /**
+   * @function onResponder
+   * @param {RespostaCorreta} resposta - The user's answer.
+   * @description A callback function to be called when the user answers the question.
+   * @description Uma função de callback a ser chamada quando o usuário responde a questão.
+   */
   onResponder: (resposta: RespostaCorreta) => void
+  /**
+   * @property {RespostaCorreta | null} [respostaUsuario] - The user's answer to the question.
+   * @property {RespostaCorreta | null} [respostaUsuario] - A resposta do usuário para a questão.
+   */
   respostaUsuario?: RespostaCorreta | null
+  /**
+   * @property {boolean} mostrarFeedback - Whether to show feedback for the user's answer.
+   * @property {boolean} mostrarFeedback - Se deve mostrar feedback para a resposta do usuário.
+   */
   mostrarFeedback: boolean
 }
 
+/**
+ * @function QuestaoCard
+ * @description A component to display a question, handle user answers, and show feedback.
+ * @param {QuestaoCardProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered question card component.
+ */
+/**
+ * @function QuestaoCard
+ * @description Um componente para exibir uma questão, lidar com as respostas do usuário e mostrar feedback.
+ * @param {QuestaoCardProps} props - As props para o componente.
+ * @returns {JSX.Element} O componente de card de questão renderizado.
+ */
 export default function QuestaoCard({
   questao,
   onResponder,
@@ -99,9 +139,11 @@ export default function QuestaoCard({
             {mostrarFeedback && respostaCorreta === 'CERTO' && (
               <span className="text-2xl">✓</span>
             )}
-            {mostrarFeedback && respostaUsuario === 'CERTO' && respostaCorreta !== 'CERTO' && (
-              <span className="text-2xl">✗</span>
-            )}
+            {mostrarFeedback &&
+              respostaUsuario === 'CERTO' &&
+              respostaCorreta !== 'CERTO' && (
+                <span className="text-2xl">✗</span>
+              )}
             CERTO
           </span>
         </Button>
@@ -119,9 +161,11 @@ export default function QuestaoCard({
             {mostrarFeedback && respostaCorreta === 'ERRADO' && (
               <span className="text-2xl">✓</span>
             )}
-            {mostrarFeedback && respostaUsuario === 'ERRADO' && respostaCorreta !== 'ERRADO' && (
-              <span className="text-2xl">✗</span>
-            )}
+            {mostrarFeedback &&
+              respostaUsuario === 'ERRADO' &&
+              respostaCorreta !== 'ERRADO' && (
+                <span className="text-2xl">✗</span>
+              )}
             ERRADO
           </span>
         </Button>
@@ -142,12 +186,12 @@ export default function QuestaoCard({
           aria-live="polite"
         >
           <div className="flex items-start gap-3 mb-4">
-            <span className="text-3xl">
-              {acertou ? '✓' : '✗'}
-            </span>
+            <span className="text-3xl">{acertou ? '✓' : '✗'}</span>
             <div>
               <h3 className="font-bold text-lg mb-1">
-                {acertou ? 'Parabéns! Você acertou!' : 'Ops! Resposta incorreta'}
+                {acertou
+                  ? 'Parabéns! Você acertou!'
+                  : 'Ops! Resposta incorreta'}
               </h3>
               <p className="text-sm font-medium">
                 Resposta correta: <strong>{respostaCorreta}</strong>

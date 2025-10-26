@@ -1,3 +1,8 @@
+/**
+ * @fileoverview The questions page of the application.
+ * @fileoverview A página de questões da aplicação.
+ */
+
 'use client'
 
 import { useEffect } from 'react'
@@ -6,6 +11,16 @@ import QuestaoCard from '@/components/QuestaoCard'
 import Button from '@/components/Button'
 import ProgressBar from '@/components/ProgressBar'
 
+/**
+ * @function QuestoesPage
+ * @description The page for answering questions.
+ * @returns {JSX.Element} The rendered questions page.
+ */
+/**
+ * @function QuestoesPage
+ * @description A página para responder questões.
+ * @returns {JSX.Element} A página de questões renderizada.
+ */
 export default function QuestoesPage() {
   const {
     questoes,
@@ -55,7 +70,9 @@ export default function QuestoesPage() {
       {/* Estatísticas rápidas */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="bg-white p-4 rounded-lg shadow-md border border-secondary-200">
-          <div className="text-sm text-secondary-600 mb-1">Total Respondidas</div>
+          <div className="text-sm text-secondary-600 mb-1">
+            Total Respondidas
+          </div>
           <div className="text-2xl font-bold text-primary-700">
             {estatisticas.total_questoes_respondidas}
           </div>
@@ -117,10 +134,16 @@ export default function QuestoesPage() {
             Continue praticando para melhorar seus resultados.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button variant="primary" onClick={() => window.location.href = '/revisao'}>
+            <Button
+              variant="primary"
+              onClick={() => (window.location.href = '/revisao')}
+            >
               Ir para Revisão
             </Button>
-            <Button variant="secondary" onClick={() => window.location.href = '/flashcards'}>
+            <Button
+              variant="secondary"
+              onClick={() => (window.location.href = '/flashcards')}
+            >
               Ver Flashcards
             </Button>
           </div>

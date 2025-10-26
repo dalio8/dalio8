@@ -1,3 +1,8 @@
+/**
+ * @fileoverview The home page of the application.
+ * @fileoverview A página inicial da aplicação.
+ */
+
 'use client'
 
 import { useEffect } from 'react'
@@ -5,6 +10,16 @@ import { useEstudoStore } from '@/lib/store'
 import Card from '@/components/Card'
 import Button from '@/components/Button'
 
+/**
+ * @function HomePage
+ * @description The main page of the application, serving as a dashboard.
+ * @returns {JSX.Element} The rendered home page.
+ */
+/**
+ * @function HomePage
+ * @description A página principal da aplicação, servindo como um painel.
+ * @returns {JSX.Element} A página inicial renderizada.
+ */
 export default function HomePage() {
   const { inicializarQuestoes, estatisticas } = useEstudoStore()
 
@@ -16,7 +31,8 @@ export default function HomePage() {
     {
       icon: '📝',
       title: 'Questões',
-      description: 'Pratique com questões no estilo CEBRASPE (Certo ou Errado)',
+      description:
+        'Pratique com questões no estilo CEBRASPE (Certo ou Errado)',
       link: '/questoes',
       color: 'bg-primary-100 text-primary-700',
     },
@@ -45,14 +61,18 @@ export default function HomePage() {
             Bem-vindo ao TCU Study
           </h1>
           <p className="text-xl text-secondary-600 max-w-2xl mx-auto">
-            Sua plataforma completa de estudos para o concurso do Tribunal de Contas da União
+            Sua plataforma completa de estudos para o concurso do Tribunal de
+            Contas da União
           </p>
         </div>
 
         {/* Stats Overview */}
         {estatisticas.total_questoes_respondidas > 0 && (
           <div className="max-w-4xl mx-auto mb-12">
-            <Card padding="lg" className="bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200">
+            <Card
+              padding="lg"
+              className="bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200"
+            >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div>
                   <div className="text-3xl font-bold text-primary-700">
@@ -91,17 +111,17 @@ export default function HomePage() {
               padding="lg"
               hover
               className="text-center cursor-pointer group"
-              onClick={() => window.location.href = feature.link}
+              onClick={() => (window.location.href = feature.link)}
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${feature.color} text-3xl mb-4 group-hover:scale-110 transition-transform`}>
+              <div
+                className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${feature.color} text-3xl mb-4 group-hover:scale-110 transition-transform`}
+              >
                 {feature.icon}
               </div>
               <h2 className="text-2xl font-bold text-secondary-900 mb-3">
                 {feature.title}
               </h2>
-              <p className="text-secondary-600 mb-6">
-                {feature.description}
-              </p>
+              <p className="text-secondary-600 mb-6">{feature.description}</p>
               <Button
                 variant="primary"
                 fullWidth
@@ -124,8 +144,9 @@ export default function HomePage() {
             </h2>
             <div className="space-y-4 text-secondary-700">
               <p>
-                <strong>TCU Study</strong> é uma plataforma moderna e completa para preparação para o concurso do
-                Tribunal de Contas da União (TCU). Com questões no formato CEBRASPE, sistema de revisão
+                <strong>TCU Study</strong> é uma plataforma moderna e completa
+                para preparação para o concurso do Tribunal de Contas da União
+                (TCU). Com questões no formato CEBRASPE, sistema de revisão
                 inteligente e flashcards interativos.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
@@ -133,14 +154,18 @@ export default function HomePage() {
                   <span className="text-2xl">✅</span>
                   <div>
                     <strong>Questões Certo/Errado</strong>
-                    <p className="text-sm">Formato CEBRASPE com feedback detalhado</p>
+                    <p className="text-sm">
+                      Formato CEBRASPE com feedback detalhado
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">📈</span>
                   <div>
                     <strong>Progresso Detalhado</strong>
-                    <p className="text-sm">Acompanhe suas estatísticas por matéria</p>
+                    <p className="text-sm">
+                      Acompanhe suas estatísticas por matéria
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

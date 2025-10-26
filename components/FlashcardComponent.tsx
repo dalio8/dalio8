@@ -1,14 +1,42 @@
+/**
+ * @fileoverview A component to display a flashcard with a flip animation.
+ * @fileoverview Um componente para exibir um flashcard com animação de virar.
+ */
+
 'use client'
 
 import { useState } from 'react'
 import { Flashcard } from '@/types'
 import Badge from './Badge'
 
+/**
+ * @interface FlashcardComponentProps
+ * @description The props for the FlashcardComponent.
+ * @description As props para o FlashcardComponent.
+ */
 interface FlashcardComponentProps {
+  /**
+   * @property {Flashcard} flashcard - The flashcard object to display.
+   * @property {Flashcard} flashcard - O objeto flashcard a ser exibido.
+   */
   flashcard: Flashcard
 }
 
-export default function FlashcardComponent({ flashcard }: FlashcardComponentProps) {
+/**
+ * @function FlashcardComponent
+ * @description A component that displays a flashcard with a front and back, and a flip animation.
+ * @param {FlashcardComponentProps} props - The props for the component.
+ * @returns {JSX.Element} The rendered flashcard component.
+ */
+/**
+ * @function FlashcardComponent
+ * @description Um componente que exibe um flashcard com frente and verso, e uma animação de virar.
+ * @param {FlashcardComponentProps} props - As props para o componente.
+ * @returns {JSX.Element} O componente de flashcard renderizado.
+ */
+export default function FlashcardComponent({
+  flashcard,
+}: FlashcardComponentProps) {
   const [isFlipped, setIsFlipped] = useState(false)
 
   const handleFlip = () => {
@@ -37,7 +65,9 @@ export default function FlashcardComponent({ flashcard }: FlashcardComponentProp
         onKeyDown={handleKeyPress}
         role="button"
         tabIndex={0}
-        aria-label={isFlipped ? 'Mostrar frente do cartão' : 'Mostrar verso do cartão'}
+        aria-label={
+          isFlipped ? 'Mostrar frente do cartão' : 'Mostrar verso do cartão'
+        }
       >
         <div
           className={`

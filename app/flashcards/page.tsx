@@ -1,3 +1,8 @@
+/**
+ * @fileoverview The flashcards page of the application.
+ * @fileoverview A página de flashcards da aplicação.
+ */
+
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -6,12 +11,22 @@ import FlashcardComponent from '@/components/FlashcardComponent'
 import Button from '@/components/Button'
 import { Flashcard } from '@/types'
 
+/**
+ * @function FlashcardsPage
+ * @description The page for reviewing flashcards.
+ * @returns {JSX.Element} The rendered flashcards page.
+ */
+/**
+ * @function FlashcardsPage
+ * @description A página para revisar flashcards.
+ * @returns {JSX.Element} A página de flashcards renderizada.
+ */
 export default function FlashcardsPage() {
   const [flashcards, setFlashcards] = useState<Flashcard[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
-    const cards = gerarFlashcards()
+    const cards = gerarFlashcards() as Flashcard[]
     setFlashcards(cards)
   }, [])
 
@@ -109,13 +124,14 @@ export default function FlashcardsPage() {
                 width: `${((currentIndex + 1) / flashcards.length) * 100}%`,
               }}
               role="progressbar"
-              aria-valuenow={(currentIndex + 1) / flashcards.length * 100}
+              aria-valuenow={(((currentIndex + 1) / flashcards.length) * 100)}
               aria-valuemin={0}
               aria-valuemax={100}
             />
           </div>
           <div className="text-center mt-2 text-sm text-secondary-600">
-            {Math.round(((currentIndex + 1) / flashcards.length) * 100)}% revisado
+            {Math.round(((currentIndex + 1) / flashcards.length) * 100)}%
+            revisado
           </div>
         </div>
       </div>
@@ -123,8 +139,9 @@ export default function FlashcardsPage() {
       {/* Dica de uso */}
       <div className="max-w-2xl mx-auto mt-8 p-4 bg-primary-50 border border-primary-200 rounded-lg">
         <p className="text-sm text-primary-900 text-center">
-          💡 <strong>Dica:</strong> Use os flashcards para memorizar os conceitos principais.
-          Clique no cartão para virar e revelar a resposta!
+          💡 <strong>Dica:</strong> Use os flashcards para memorizar os
+          conceitos principais. Clique no cartão para virar e revelar a
+          resposta!
         </p>
       </div>
     </div>

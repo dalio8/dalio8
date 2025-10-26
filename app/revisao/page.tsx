@@ -1,3 +1,8 @@
+/**
+ * @fileoverview The review page of the application.
+ * @fileoverview A página de revisão da aplicação.
+ */
+
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -8,6 +13,16 @@ import Button from '@/components/Button'
 import ProgressBar from '@/components/ProgressBar'
 import Badge from '@/components/Badge'
 
+/**
+ * @function RevisaoPage
+ * @description The page for reviewing statistics and progress.
+ * @returns {JSX.Element} The rendered review page.
+ */
+/**
+ * @function RevisaoPage
+ * @description A página para revisar estatísticas e progresso.
+ * @returns {JSX.Element} A página de revisão renderizada.
+ */
 export default function RevisaoPage() {
   const {
     questoes,
@@ -17,7 +32,9 @@ export default function RevisaoPage() {
     resetarProgresso,
   } = useEstudoStore()
 
-  const [materiaSelecionada, setMateriaSelecionada] = useState<Materia | null>(null)
+  const [materiaSelecionada, setMateriaSelecionada] = useState<Materia | null>(
+    null,
+  )
 
   useEffect(() => {
     if (questoes.length === 0) {
@@ -39,7 +56,11 @@ export default function RevisaoPage() {
   }
 
   const handleResetarProgresso = () => {
-    if (confirm('Tem certeza que deseja resetar todo o seu progresso? Esta ação não pode ser desfeita.')) {
+    if (
+      confirm(
+        'Tem certeza que deseja resetar todo o seu progresso? Esta ação não pode ser desfeita.',
+      )
+    ) {
       resetarProgresso()
       setMateriaSelecionada(null)
     }
@@ -77,18 +98,14 @@ export default function RevisaoPage() {
             <div className="text-4xl font-bold text-success">
               {estatisticas.total_acertos}
             </div>
-            <div className="text-sm text-secondary-600 mt-2">
-              Acertos
-            </div>
+            <div className="text-sm text-secondary-600 mt-2">Acertos</div>
           </div>
 
           <div className="text-center">
             <div className="text-4xl font-bold text-error">
               {estatisticas.total_erros}
             </div>
-            <div className="text-sm text-secondary-600 mt-2">
-              Erros
-            </div>
+            <div className="text-sm text-secondary-600 mt-2">Erros</div>
           </div>
 
           <div className="text-center">
@@ -125,7 +142,11 @@ export default function RevisaoPage() {
               hover
               className={`
                 cursor-pointer transition-all
-                ${materiaSelecionada === prog.materia ? 'ring-2 ring-primary-500 shadow-lg' : ''}
+                ${
+                  materiaSelecionada === prog.materia
+                    ? 'ring-2 ring-primary-500 shadow-lg'
+                    : ''
+                }
               `}
               onClick={() => handleSelecionarMateria(prog.materia)}
               role="button"
@@ -146,11 +167,15 @@ export default function RevisaoPage() {
                   <div className="flex flex-wrap gap-4 mb-3 text-sm">
                     <div>
                       <span className="text-secondary-600">Total: </span>
-                      <span className="font-semibold">{prog.total_questoes}</span>
+                      <span className="font-semibold">
+                        {prog.total_questoes}
+                      </span>
                     </div>
                     <div>
                       <span className="text-secondary-600">Respondidas: </span>
-                      <span className="font-semibold">{prog.questoes_respondidas}</span>
+                      <span className="font-semibold">
+                        {prog.questoes_respondidas}
+                      </span>
                     </div>
                     <div>
                       <span className="text-success font-semibold">
@@ -171,8 +196,8 @@ export default function RevisaoPage() {
                       prog.percentual_acerto >= 70
                         ? 'success'
                         : prog.percentual_acerto >= 50
-                        ? 'warning'
-                        : 'error'
+                          ? 'warning'
+                          : 'error'
                     }
                     size="md"
                   />
@@ -208,11 +233,7 @@ export default function RevisaoPage() {
           )}
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              variant="primary"
-              fullWidth
-              onClick={handleIniciarEstudo}
-            >
+            <Button variant="primary" fullWidth onClick={handleIniciarEstudo}>
               {materiaSelecionada
                 ? `Estudar ${materiaSelecionada}`
                 : 'Estudar Todas as Matérias'}
@@ -227,18 +248,15 @@ export default function RevisaoPage() {
               </Button>
             )}
 
-            <Button
-              variant="error"
-              onClick={handleResetarProgresso}
-            >
+            <Button variant="error" onClick={handleResetarProgresso}>
               Resetar Progresso
             </Button>
           </div>
 
           <div className="mt-6 pt-6 border-t border-secondary-200">
             <p className="text-sm text-secondary-600 text-center">
-              💡 Dica: Selecione uma matéria específica para focar seus estudos ou
-              estude todas de uma vez!
+              💡 Dica: Selecione uma matéria específica para focar seus estudos
+              ou estude todas de uma vez!
             </p>
           </div>
         </Card>
